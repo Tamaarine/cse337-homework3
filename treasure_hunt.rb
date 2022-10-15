@@ -23,6 +23,10 @@ class Room
     @hazards = []           # List of hazards this room can contain
     @neighbors = []         # List of neighbors this room connects to
   end
+  
+  def add(hazard)
+    @hazards.push(hazard)
+  end
 end
 
 class Console
