@@ -43,6 +43,12 @@ class Room
   def empty?
     @hazards.empty?
   end
+  
+  def safe?
+    # Select neighbors that is safe, make sure length is > 0
+    # and make sure current room is safe too
+    @neighbors.select {|room| room.empty?} > 0 and empty?
+  end
 end
 
 class Console
