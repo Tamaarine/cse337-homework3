@@ -49,6 +49,11 @@ class Room
     # and make sure current room is safe too
     @neighbors.select {|room| room.empty?} > 0 and empty?
   end
+  
+  def connect(other_room)
+    @neighbors.push(other_room)       # Add to self neighbor
+    other_room.neighbors.push(self)   # Add self to other_room's neighbors
+  end
 end
 
 class Console
