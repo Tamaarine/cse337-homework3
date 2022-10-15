@@ -27,6 +27,10 @@ class Room
   def add(hazard)
     @hazards.push(hazard)
   end
+  
+  def has?(hazard)
+    @hazards.include?(hazard)
+  end
 end
 
 class Console
