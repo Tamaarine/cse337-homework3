@@ -16,7 +16,13 @@ class Player
 end
 
 class Room
-  # add specified Room methods
+  attr_reader :numbers, :hazards, :neighbors
+  
+  def initialize(number)
+    @numbers = number       # Room #
+    @hazards = []           # List of hazards this room can contain
+    @neighbors = []         # List of neighbors this room connects to
+  end
 end
 
 class Console
