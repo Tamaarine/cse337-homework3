@@ -39,6 +39,10 @@ class Room
       raise ValueError.new("The hazard doesn't exist")
     end
   end
+  
+  def empty?
+    @hazards.empty?
+  end
 end
 
 class Console
