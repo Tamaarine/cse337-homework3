@@ -31,6 +31,14 @@ class Room
   def has?(hazard)
     @hazards.include?(hazard)
   end
+  
+  def remove(hazard)
+    if has?(hazard)
+      @hazards.delete(hazard)
+    else
+      raise ValueError.new("The hazard doesn't exist")
+    end
+  end
 end
 
 class Console
