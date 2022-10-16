@@ -22,6 +22,10 @@ class Cave
       end
     end
   end
+  
+  def random_room
+    @rooms[(1..20).to_a.sample]
+  end
 end
 
 class Player
