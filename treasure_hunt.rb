@@ -16,10 +16,10 @@ class Player
 end
 
 class Room
-  attr_reader :numbers, :hazards, :neighbors
+  attr_reader :number, :hazards, :neighbors
   
   def initialize(number)
-    @numbers = number       # Room #
+    @number = number        # Room #
     @hazards = []           # List of hazards this room can contain
     @neighbors = []         # List of neighbors this room connects to
   end
