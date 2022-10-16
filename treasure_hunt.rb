@@ -18,7 +18,6 @@ class Cave
       if not @rooms[picked].has?(h)
         @rooms[picked].add(h)
         added += 1
-        p "Added to #{h} to room #{picked}"
       end
     end
   end
