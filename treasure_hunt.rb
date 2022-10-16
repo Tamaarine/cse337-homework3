@@ -69,6 +69,14 @@ class Player
   def action(act, &callback)
     @actions[act] = callback
   end
+  
+  def enter(room)
+    @room = room
+    ret = @encounters.keys.find {|key| room.has?(key.to_s)}
+    if ret != nil
+      @encounters[ret].call
+    end
+  end
 end
 
 class Room
