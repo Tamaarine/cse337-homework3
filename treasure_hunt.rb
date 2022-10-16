@@ -10,7 +10,18 @@ class Cave
     (1..20).to_a.each {|i| @rooms[i] = Room.new(i)}   # Create the rooms and put it in the dict
     @edges.each {|edge| @rooms[edge[0]].connect(@rooms[edge[1]])}   # Connect the rooms
   end
-  # add cave methods
+  
+  def add_hazard(h, n)
+    added = 0
+    while added < n
+      picked = rand(1..20)
+      if not @rooms[picked].has?(h)
+        @rooms[picked].add(h)
+        added += 1
+        p "Added to #{h} to room #{picked}"
+      end
+    end
+  end
 end
 
 class Player
