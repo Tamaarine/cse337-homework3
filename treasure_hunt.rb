@@ -25,6 +25,10 @@ class Cave
   def random_room
     @rooms[(1..20).to_a.sample]
   end
+  
+  def room_with(hazard)
+    @rooms.values.find {|room| room.has?(hazard)}
+  end
 end
 
 class Player
