@@ -42,6 +42,10 @@ class Cave
   def room(n)
     @rooms[n]
   end
+  
+  def entrance
+    @rooms.values.find {|room| room.safe?}
+  end
 end
 
 class Player
