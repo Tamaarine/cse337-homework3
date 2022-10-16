@@ -38,6 +38,10 @@ class Cave
       raise ValueError.new("#{hazard} doesn't exist in room \##{frm.number}")
     end
   end
+  
+  def room(n)
+    @rooms[n]
+  end
 end
 
 class Player
