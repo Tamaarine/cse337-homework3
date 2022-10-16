@@ -60,6 +60,11 @@ class Room
     @neighbors.each {|room| ret.push(room.number)}
     return ret
   end
+  
+  def neighbor(number)
+    ret = @neighbors.index {|room| room.number == number}
+    ret != nil ? @neighbors[ret] : ret
+  end
 end
 
 class Console
