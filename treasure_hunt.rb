@@ -54,6 +54,12 @@ class Room
     @neighbors.push(other_room)       # Add to self neighbor
     other_room.neighbors.push(self)   # Add self to other_room's neighbors
   end
+  
+  def exit
+    ret = Array.new
+    @neighbors.each {|room| ret.push(room.number)}
+    return ret
+  end
 end
 
 class Console
