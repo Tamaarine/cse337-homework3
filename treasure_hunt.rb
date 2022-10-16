@@ -72,9 +72,29 @@ class Player
   
   def enter(room)
     @room = room
-    ret = @encounters.keys.find {|key| room.has?(key.to_s)}
+    ret = @encounters.keys.find {|key| room.has?(key)}
     if ret != nil
       @encounters[ret].call
+    end
+  end
+  
+  def explore_room
+    @room.neighbors.each do |neighbor|
+      neighbor.hazards.each do |hazard|
+        ret = @senses.keys.find {|key| hazard == key}
+        if ret != nil
+          @senses[ret].call
+        end
+      end
+    end
+  end
+  
+  def act(action, destination)
+    ret = @actions[action]
+    if ret != nil
+      @actions[action].call(destination)
+    else
+      raise KeyError.new("Not such action exist yet")
     end
   end
 end
