@@ -55,7 +55,7 @@ class Room
     other_room.neighbors.push(self)   # Add self to other_room's neighbors
   end
   
-  def exit
+  def exits
     ret = Array.new
     @neighbors.each {|room| ret.push(room.number)}
     return ret
