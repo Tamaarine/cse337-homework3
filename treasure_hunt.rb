@@ -45,9 +45,9 @@ class Room
   end
   
   def safe?
-    # Select neighbors that is safe, make sure length is > 0
-    # and make sure current room is safe too
-    @neighbors.select {|room| room.empty?} > 0 and empty?
+    # Select neighbors that's unsafe, if unsafe neighbors is 0
+    # and make sure current room is safe too then is safe
+    (@neighbors.select {|room| not room.empty?}).length == 0 and empty?
   end
   
   def connect(other_room)
