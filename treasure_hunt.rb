@@ -6,7 +6,9 @@ class Cave
     @edges = [[1, 2], [2, 10], [10, 11], [11, 8], [8, 1], [1, 5], [2, 3], [9, 10], [20, 11], [7, 8], [5, 4],
                       [4, 3], [3, 12], [12, 9], [9, 19], [19, 20], [20, 17], [17, 7], [7, 6], [6, 5], [4, 14], [12, 13],
                       [18, 19], [16, 17], [15, 6], [14, 13], [13, 18], [18, 16], [16, 15], [15, 14]]
-    # add cave attributes
+    @rooms = {}
+    (1..20).to_a.each {|i| @rooms[i] = Room.new(i)}   # Create the rooms and put it in the dict
+    @edges.each {|edge| @rooms[edge[0]].connect(@rooms[edge[1]])}   # Connect the rooms
   end
   # add cave methods
 end
