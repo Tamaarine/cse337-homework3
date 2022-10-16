@@ -65,6 +65,14 @@ class Room
     ret = @neighbors.index {|room| room.number == number}
     ret != nil ? @neighbors[ret] : ret
   end
+  
+  def random_neighbor
+    if @neighbors.length != 0
+      @neighbors[rand(0...@neighbors.length)]
+    else
+      raise IndexError.new("Room has no neighbor")
+    end
+  end
 end
 
 class Console
