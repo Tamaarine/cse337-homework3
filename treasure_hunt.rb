@@ -29,6 +29,15 @@ class Cave
   def room_with(hazard)
     @rooms.values.find {|room| room.has?(hazard)}
   end
+  
+  def move(hazard, frm, to)
+    if frm.has?(hazard)
+      frm.remove(hazard)
+      to.add(hazard)
+    else
+      raise ValueError.new("#{hazard} doesn't exist in room \##{frm.number}")
+    end
+  end
 end
 
 class Player
