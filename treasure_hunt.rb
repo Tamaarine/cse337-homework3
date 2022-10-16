@@ -49,7 +49,26 @@ class Cave
 end
 
 class Player
-  # add specified Player methods
+  attr_reader :room
+  
+  def initialize
+    @senses = {}
+    @encounters = {}
+    @actions = {}
+    @room = nil
+  end
+  
+  def sense(hazard, &callback)
+    @senses[hazard] = callback
+  end
+  
+  def encounter(hazard, &callback)
+    @encounters[hazard] = callback
+  end
+  
+  def action(act, &callback)
+    @actions[act] = callback
+  end
 end
 
 class Room
